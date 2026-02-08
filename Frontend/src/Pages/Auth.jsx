@@ -1,12 +1,9 @@
-import NavBar from "./NavBar";
-
 let isLoggedIn = false;
 
-function UserStuff() {
+function Auth() {
   if (!isLoggedIn) {
     return (
       <>
-        <NavBar />
         <p>Username</p>
         <input type="text" />
         <p>Password</p>
@@ -24,4 +21,4 @@ function UserStuff() {
   }
 }
 
-export default UserStuff;
+export default Auth;
