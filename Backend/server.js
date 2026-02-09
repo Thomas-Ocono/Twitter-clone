@@ -1,7 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
-const Schema = mongoose.Schema;
+import cors from "cors";
 
 dotenv.config();
 const app = express();
@@ -18,26 +18,8 @@ const connectToDB = async () => {
 
 connectToDB();
 
-const testSchema = new Schema({
-  text: {
-    type: "String",
-    required: true,
-  },
-});
-const testUser = mongoose.model("User", testSchema);
-
-const testData = async () => {
-  const newTest = new testUser({
-    text: "Hello World",
-  });
-  try {
-    newTest.save();
-    console.log("Data saved");
-  } catch (error) {
-    console.error(error);
-    console.log("Error saving");
-  }
-};
+app.use(express.json());
+app.use(cors());
 
 app.listen(5001, () => {
   console.log("Server started on port 5001");
