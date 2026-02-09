@@ -1,0 +1,44 @@
+.app {
+  display: flex;
+  flex-direction: row;
+}
+.Home {
+  margin-left: 5rem;
+}
+.Login {
+  margin-left: 5rem;
+}
+.Register {
+  margin-left: 5rem;
+}
+.tweet-card {
+  background-color: antiquewhite;
+  border: 1px solid black;
+  width: 50vw;
+  padding-left: 2rem;
+}
+.navbar {
+  display: flex;
+  flex-direction: column;
+  width: 10%;
+  height: 100vh;
+  margin-left: 0rem;
+  padding-right: 10%;
+  border-right: solid gray 2px;
+}
+.navbar button {
+  background-color: blue;
+  border: none;
+  color: white;
+  border-radius: 10px;
+  font-size: 250%;
+  margin-left: 2rem;
+  margin-top: 3rem;
+  width: 10rem;
+  font-family:
+    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
+}
+.navbar button:hover {
+  background-color: aqua;
+}

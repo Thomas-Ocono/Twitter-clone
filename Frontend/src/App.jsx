@@ -1,18 +1,21 @@
 import "./App.css";
 import { Route, Routes, Link } from "react-router";
 import axios from "axios";
-import NavBar from "./Navbar.jsx";
-import Homepage from "./Pages/Homepage.jsx";
-import UserStuff from "./UserStuff.jsx";
+import Navbar from "../components/Navbar.jsx";
+import Home from "../pages/Home.jsx";
+import Login from "../pages/Login.jsx";
+import Register from "../pages/Register.jsx";
 
 function App() {
   return (
-    <>
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/login" element={<UserStuff />} />
+    <div class="app">
+      <Navbar />
+      <Routes class="content">
+        <Route path="/" element={<Home />} />;
+        <Route path="/login" element={<Login />} />;
+        <Route path="/register" element={<Register />} />;
       </Routes>
-    </>
+    </div>
   );
 }
 
