@@ -1,3 +1,9 @@
+import toast from "react-hot-toast";
+
+function toastClick() {
+  toast("Workin!");
+}
+
 function Register() {
   return (
     <div class="Register">
@@ -7,7 +13,7 @@ function Register() {
       <input type="text" />
       <h2>Confirm Password: </h2>
       <input type="text" />
-      <button>Submit</button>
+      <button onClick={toastClick}>Submit</button>
     </div>
   );
 }
