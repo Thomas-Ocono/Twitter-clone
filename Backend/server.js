@@ -3,7 +3,8 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
 import Users from "./models/Users.js";
-import registerRoutes from "./routes/registerRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 const app = express();
@@ -22,8 +23,7 @@ connectToDB();
 
 app.use(express.json());
 app.use(cors());
-
-app.use("/register", registerRoutes);
+app.use(cookieParser());
 
 app.listen(5001, () => {
   console.log("Server started on port 5001");
