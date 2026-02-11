@@ -20,3 +20,24 @@ export const registerUser = async (req, res) => {
     res.send({ message: "Error" });
   }
 };
+
+export const loginUser = async (req, res) => {
+  try {
+    const user = await User.findOne({ username: req.body.username });
+
+    if (!user) {
+      res.send({ message: "User not found" });
+      return;
+    }
+
+    if (await bcrypt.compare(req.body.password, user.password)) {
+      res.send({ message: "Successful Login" });
+    } else {
+      res.send({ message: "Not authorized" });
+    }
+  } catch (error) {
+    console.log(error);
+    console.log("error logging in user");
+    res.send({ message: "Error logging in user" });
+  }
+};
