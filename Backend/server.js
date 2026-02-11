@@ -25,6 +25,8 @@ app.use(express.json());
 app.use(cors());
 app.use(cookieParser());
 
+app.use("/auth", authRoutes);
+
 app.listen(5001, () => {
   console.log("Server started on port 5001");
 });
