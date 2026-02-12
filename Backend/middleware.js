@@ -10,7 +10,6 @@ export const tokenAuth = async (req, res, next) => {
   try {
     const checkCookie = jwt.verify(token, process.env.JWT_SECRET);
     req.username = checkCookie.username;
-    console.log(req.username);
     next();
   } catch (error) {
     console.log(error);

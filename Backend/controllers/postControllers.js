@@ -15,3 +15,19 @@ export const createPost = async (req, res) => {
     res.json({ message: "Error creating post" });
   }
 };
+
+export const getPostsByUsername = async (req, res) => {
+  try {
+    const username = req.query.q;
+    const foundPosts = await Post.find({ author: username });
+    if (foundPosts.length === 0) {
+      res.json({ message: "No posts found" });
+    } else {
+      res.json(foundPosts);
+    }
+  } catch (error) {
+    console.log(error);
+    console.log("Error getting posts by username");
+    res.json({ message: "Error finding posts by username" });
+  }
+};
