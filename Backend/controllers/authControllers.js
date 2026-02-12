@@ -31,7 +31,14 @@ export const loginUser = async (req, res) => {
     }
 
     if (await bcrypt.compare(req.body.password, user.password)) {
-      const accessToken = jwt.sign(user.username, process.env.JWT_SECRET);
+      const accessToken = jwt.sign(
+        { username: user.username },
+        process.env.JWT_SECRET,
+        {
+          expiresIn: "3d",
+        },
+      );
+
       res.cookie("token", accessToken, {
         httpOnly: true,
         sameSite: "lax",
@@ -45,22 +52,5 @@ export const loginUser = async (req, res) => {
     console.log(error);
     console.log("error logging in user");
     res.send({ message: "Error logging in user" });
-  }
-};
-
-export const checkToken = (req, res) => {
-  const token = req.cookies.token;
-  console.log(token);
-  if (!token) {
-    res.status(401).json({ message: "No Cookie" });
-    return;
-  }
-  console.log("Trying");
-  try {
-    const checkCookie = jwt.verify(token, process.env.JWT_SECRET);
-    console.log(checkCookie);
-    res.json({ message: "Cookie Verified :D" });
-  } catch (error) {
-    return res.status(401).json({ message: "invalid Cookie" });
   }
 };
