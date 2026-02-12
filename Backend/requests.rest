@@ -2,8 +2,8 @@ POST http://localhost:5001/post
 Content-Type: application/json
 
 {
-    "postContent": "Another Test Post!",
-    "username": "Mike"
+    "postContent": "Test post by another User",
+    "username": "Tyle"
 }
 
 ###
@@ -18,7 +18,7 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:5001/post/?q=Micheal
+GET http://localhost:5001/post/
 Content-Type: application/json 
 
 {

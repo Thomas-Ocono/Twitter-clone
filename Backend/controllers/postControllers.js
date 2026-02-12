@@ -16,6 +16,17 @@ export const createPost = async (req, res) => {
   }
 };
 
+export const getAllPosts = async (req, res) => {
+  try {
+    const allPosts = await Post.find();
+    res.json({ allPosts });
+  } catch (error) {
+    console.log(error);
+    console.log("Error getting all posts");
+    res.json({ message: "Error getting all posts" });
+  }
+};
+
 export const getPostsByUsername = async (req, res) => {
   try {
     const username = req.query.q;
