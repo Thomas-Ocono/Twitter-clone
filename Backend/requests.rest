@@ -1,0 +1,16 @@
+GET http://localhost:5001/auth/login
+Content-Type: application/json
+
+{
+    "username":"Mike",
+    "password":"Test password"
+}
+
+###
+
+GET http://localhost:5001/auth/checkToken
+Content-Type: application/json
+
+{
+    "username":"Mike"
+}
