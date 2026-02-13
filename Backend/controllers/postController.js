@@ -50,3 +50,18 @@ export const updatePost = async (req, res) => {
     res.status(504).json({ message: "Error updating post" });
   }
 };
+
+export const getPostsByUser = async (req, res) => {
+  try {
+    const username = req.query.user;
+    const foundPosts = await Post.find({ username: username });
+    if (foundPosts.length === 0) {
+      return res.status(301).json({ message: "No posts found" });
+    }
+    res.status(200).json(foundPosts);
+  } catch (err) {
+    console.log(err);
+    console.log("Error getting posts by user");
+    res.status(506).json({ message: "Error getting posts by user" });
+  }
+};

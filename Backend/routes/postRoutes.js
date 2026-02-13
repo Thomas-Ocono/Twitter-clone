@@ -4,6 +4,7 @@ import {
   createPost,
   deletePost,
   updatePost,
+  getPostsByUser,
 } from "../controllers/postController.js";
 
 const router = express.Router();
@@ -15,5 +16,7 @@ router.post("/", createPost);
 router.delete("/", deletePost);
 
 router.put("/", updatePost);
+
+router.get("/user", getPostsByUser);
 
 export default router;

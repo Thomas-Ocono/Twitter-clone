@@ -12,7 +12,7 @@ Content-Type: application/json
 
 {
     "username": "Tomi",
-    "postText": "Second Test Post"
+    "postText": "Posty McPostFace"
 }
 
 ###
@@ -32,3 +32,10 @@ Content-Type: application/json
     "postText": "Updated Post"
 }
 
+###
+GET http://localhost:5001/api/post/user/?user=Tomi
+Content-Type: application/json
+
+{
+    
+}
