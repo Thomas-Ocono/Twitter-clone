@@ -39,3 +39,26 @@ Content-Type: application/json
 {
     
 }
+
+###
+POST http://localhost:5001/api/auth
+Content-Type: application/json
+
+{
+    "username":"Yugi Moto",
+    "password":"testpassword"
+}
+###
+GET http://localhost:5001/api/auth
+Content-Type: application/json
+
+{
+    
+}
+###
+DELETE http://localhost:5001/api/auth
+Content-Type: application/json
+
+{
+    "username":"Yugi Moto"
+}
